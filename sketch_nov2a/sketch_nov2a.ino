@@ -3,6 +3,7 @@ char command;
 
 void setup() {
   pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, HIGH);
   Serial.begin(9600);
   Serial.println("Type 'o' to turn on LED, 'f' to turn off LED");
 }
