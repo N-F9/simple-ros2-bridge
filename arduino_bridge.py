@@ -15,7 +15,7 @@ class ArduinoBridge(Node):
 
         self.create_subscription(
             String,
-            'motor_command',
+            'sketch_nov2a',
             self.listener_callback,
             10
         )
