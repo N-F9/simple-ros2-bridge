@@ -35,7 +35,7 @@ class ArduinoBridge(Node):
         if self.ser.in_waiting > 0:
             response = self.ser.readline()
             
-            self.get_logger().info(f'Raw data received from Arduino: {response.decode()}')
+            self.get_logger().info(f'Raw data received from Arduino: {response.decode("utf-8")}')
 
 def main(args=None):
     rclpy.init(args=args)
