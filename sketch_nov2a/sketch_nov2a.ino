@@ -11,6 +11,7 @@ void setup() {
 void loop() {
   if (Serial.available() > 0) {
     command = Serial.read();
+    Serial.println(command);
     
     if (command == 'o') { 
       digitalWrite(ledPin, HIGH);
