@@ -8,10 +8,11 @@ Credits for the original bridge: https://github.com/Siddharth-Andhale/ROS2_Ardui
 
 On the docker container in one terminal:
 
-- `sudo docker run --rm -it --runtime nvidia --network host --gpus all --device=/dev/ttyACM0 -e DISPLAY dustynv/ros:humble-ros-base-l4t-r32.7.1`  
-- `sudo docker cp arduino_bridge.py {docker_id}:/arduino_bridge.py`  
-- `pip install pyserial`   
-- `python arduino_bridge.py`  
+- `sudo docker build -t arduino-bridge .`
+- `sudo docker run -d --rm -it --runtime nvidia --network host --gpus all --device=/dev/ttyACM0 -e DISPLAY --name arduino-bridge-container arduino-bridge`
+- `sudo docker ps`, to view if the container is running.
+- `sudo docker logs arduino-bridge-container`, to view logs.
+- `sudo docker stop arduino-bridge-container`, to stop the container.
 
 In another terminal:  
 
