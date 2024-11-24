@@ -4,6 +4,8 @@ A simple ROS2 bridge to turn a LED on, off, and toggle.
 
 Credits for the original bridge: https://github.com/Siddharth-Andhale/ROS2_Arduino_Bridge
 
+## Running The Bridge
+
 On the docker container in one terminal:
 
 - `sudo docker run --rm -it --runtime nvidia --network host --gpus all --device=/dev/ttyACM0 -e DISPLAY dustynv/ros:humble-ros-base-l4t-r32.7.1`  
@@ -19,3 +21,6 @@ In another terminal:
 - `ros2 topic pub {topic} std_msgs/String '{data: "f"}'`  
 - `ros2 topic pub {topic} std_msgs/String '{data: "t"}'`  
 
+## Things I Need To Do
+
+- Simplify the above commands and setup by creating a new docker container image.
