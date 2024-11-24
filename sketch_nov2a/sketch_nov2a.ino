@@ -10,15 +10,33 @@ void setup() {
 
 void loop() {
   if (Serial.available() > 0) {
+    char temp = command;
     command = Serial.read();
     Serial.println(command);
     
     if (command == 'o') { 
-      digitalWrite(ledPin, HIGH);
-      Serial.println("LED is on");
+      on();
     } else if (command == 'f') {
-      digitalWrite(ledPin, LOW);
-      Serial.println("LED is off");
+      off();
+    } else if (command == 't') {
+      if(temp == 'o') {
+        command = 'f';
+        off();
+      }
+      if(temp == 'f') {
+        command = 'o';
+        on();
+      }
     }
   }
+}
+
+void on() {
+  digitalWrite(ledPin, HIGH);
+  Serial.println("LED is on");
+}
+
+void off() {
+  digitalWrite(ledPin, LOW);
+  Serial.println("LED is off");
 }
