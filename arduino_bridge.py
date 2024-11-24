@@ -1,14 +1,12 @@
-# This bridge uses the ros 2 python library and py serial to communicate between
-# the jetson nano and an arduino.  
+# This bridge uses the ros 2 python library and pyserial to communicate between the jetson nano and an arduino.  
 
-import rclpy # https://docs.ros2.org/latest/api/rclpy/index.html
+import rclpy # Documentation: https://docs.ros2.org/latest/api/rclpy/index.html
 from rclpy.node import Node
 from std_msgs.msg import String
 import serial
 import time
 
-# A topic is a named bus where messages are passed from publishers to subscribers. 
-#   There can be multiple of each in one topic
+# A topic is a named bus where messages are passed from publishers to subscribers. There can be multiple of each in one topic.
 # A publisher is a node that sends data to a particular topic. 
 # A subscriber is a node that receives data from a topic. 
 
@@ -18,7 +16,7 @@ class ArduinoBridge(Node):
         self.serial = serial.Serial('/dev/ttyACM0', 9600)
         time.sleep(2)  # Give time for Arduino to reset
 
-        # read in data serially
+        # Read in data serially.
         self.create_timer(
             timer_period_sec=1, 
             callback=self.read_from_arduino
